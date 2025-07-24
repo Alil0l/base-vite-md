@@ -6,13 +6,13 @@
     <Counter />
     
     <div class="mt-8">
-      <Button
+      <frappeUI.Button
         icon-left="code"
         @click="handleClick"
         :loading="ping"
       >
         Click to send 'ping' request
-      </Button>
+      </frappeUI.Button>
       <div class="mt-2">
         {{ ping }}
       </div>
@@ -23,7 +23,7 @@
 <script setup>
 import Counter from '@/components/Counter.vue'
 import { ref } from 'vue'
-
+let frappeUI = window.frappeUI
 const ping = ref('')
 
 const handleClick = () => {

@@ -7,22 +7,26 @@
     </header>
     <nav class="mb-8">
     <div class="flex gap-4">
-      <router-link to="/" class="text-blue-600 hover:text-blue-800">Landing</router-link>
-      <router-link to="/appPage" class="text-blue-600 hover:text-blue-800">App Page</router-link>
+      <BaseRouter.RouterLink to="/" class="text-blue-600 hover:text-blue-800">Landing</BaseRouter.RouterLink>
+      <BaseRouter.RouterLink to="/appPage" class="text-blue-600 hover:text-blue-800">App Page</BaseRouter.RouterLink>
       <a href="/landing" class="text-blue-600 hover:text-blue-800" @click.prevent="()=>handleClick()">Landing</a>
+      <a href="/landing" class="text-blue-600 hover:text-blue-800" @click.prevent="()=>{console.log('clicked'); router.push('/landing')}">Landing</a>
     </div>
   </nav>
   <!-- {{ counter.count }} -->
-    <router-view />
+    <BaseRouter.RouterView />
   </div>
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
+// import { useRouter } from 'vue-router'
+const BaseRouter = window.BaseRouter
 import { useCounterStore } from '@/stores/counter'
 // check if the window has the useCounterStore function
 // const counter = window.useCounterStore ? window.useCounterStore() : useCounterStore()
-const router = useRouter()
+const router = BaseRouter.useRouter()
+console.log('router', BaseRouter)
+console.log('router', BaseRouter.useRouter)
 console.log('router', router)
 function handleClick() {
   console.log('clicked')

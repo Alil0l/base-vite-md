@@ -1,4 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
+// import { createRouter, createWebHistory } from 'vue-router'
+import * as BaseRouter from 'vue-router'
+
+let createRouter = BaseRouter.createRouter
+let createWebHistory = BaseRouter.createWebHistory
 
 const routes = [
   {
@@ -25,4 +29,7 @@ let router = createRouter({
   routes,
 })
 
+console.log('router', BaseRouter)
+window.BaseRouter = BaseRouter
 export default router
+// export { BaseRouter }

@@ -4,30 +4,24 @@
     <p class="text-gray-600 mb-6">
       This is a simple about page with a button component.
     </p>
-    <Button @click="handleClick" variant="primary">
+    <frappeUI.Button @click="handleClick" variant="primary">
       Click Me!
-    </Button>
+    </frappeUI.Button>
     <p v-if="clicked" class="mt-4 text-green-600">
       Button was clicked!
     </p>
   </div>
 </template>
 
-<script>
-export default {
-  name: 'About',
-  data() {
-    return {
-      clicked: false
-    }
-  },
-  methods: {
-    handleClick() {
-      this.clicked = true
-      setTimeout(() => {
-        this.clicked = false
-      }, 2000)
-    }
-  }
+<script setup>
+import { ref } from 'vue'
+let frappeUI = window.frappeUI
+console.log('frappeUI', frappeUI)
+const clicked = ref(false)
+function handleClick() {
+  clicked.value = true
+  setTimeout(() => {
+    clicked.value = false
+  }, 2000)
 }
 </script> 
